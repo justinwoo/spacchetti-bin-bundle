@@ -1,0 +1,13 @@
+language: generic
+
+before_deploy:
+  - ./prepare-tar.bash
+
+deploy:
+  provider: releases
+  api_key: $API_KEY
+  file:
+    - bundle.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
